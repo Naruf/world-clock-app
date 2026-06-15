@@ -126,7 +126,7 @@ footer {
   width: 500px;
 }
 .link {
-  color: orange;
+  color: rgb(232, 133, 12);
 }
 .page-container {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/180/523/original/wold_map.jpg?1781534463");
@@ -139,7 +139,7 @@ footer {
   border-radius: 10px;
   display: block;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 10px;
   padding: 30px;
   text-align: center;
   width: 700px;
