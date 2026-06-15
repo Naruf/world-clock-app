@@ -4,37 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=0, initial-scale=1.0" />
     <link rel="stylesheet" href="src/styles.css" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&family=Science+Gothic:wght@100..900&display=swap" rel="stylesheet">
     <title>World clock</title>
   </head>
   <body>
+    <div class="page-container">
     <header>
-      <h1>Nadia's world clock</h1>
+      <h1 class="bitcount-single-font">World Clock</h1>
     </header>
     <main>
       <section>
+        <div class="main-location">
         <h2>Malaga</h2>
-        <p>current time in Malaga</p>
+        <p><div class="date">June 15th 2026</div><div id="clock" class="clock"></div>
+        </p>
         <form action="">
-          <select name="city" id="city">
+          <select name="city" id="city" class="select-element">
             <option valeu="">Select a city</option>
             <option valeu="">Madrid</option>
             <option valeu="">London</option>
-            <option valeu="">Paris</option>
+            <option valeu="">Melbourne</option>
             <option valeu="">Rome</option>
           </select>
         </form>
-        <div>
-          <h3>Madrid <span>Time</span></h3>
         </div>
-        <div>
-          <h3>London <span>Time</span></h3>
+
+        <div class="city-container">
+          <h3>New York<div class="city-date">June 15th 2026</div></h3>
+          <section class="date-time">
+          <div class="city-time">11:50:23 AM</div>
+          <div class="hours-difference">2 hours ahead</div></section>
         </div>
-        <div>
-          <h3>Paris <span>Time</span></h3>
+        <div class="city-container">
+          <h3>Paris<div class="city-date">June 15th 2026</div></h3>
+          <section class="date-time">
+          <div class="city-time">11:50:23 AM</div>
+          <div class="hours-difference">2 hours ahead</div></section>
         </div>
-        <div>
-          <h3>Rome <span>Time</span></h3>
+        <div class="city-container">
+          <h3>Qatar<div class="city-date">June 15th 2026</div></h3>
+          <section class="date-time">
+          <div class="city-time">11:50:23 AM</div>
+          <div class="hours-difference">2 hours ahead</div></section>
         </div>
+        <div class="city-container">
+          <h3>Tokyo<div class="city-date">June 15th 2026</div></h3>
+          <section class="date-time">
+          <div class="city-time">11:50:23 AM</div>
+          <div class="hours-difference">2 hours ahead</div></section>
+        </div>
+
       </section>
     </main>
     <footer>
@@ -63,6 +84,8 @@
         ></span
       >
     </footer>
+  </div>
+    </body>
 
     <script src="src/index.js"></script>
   </body>
