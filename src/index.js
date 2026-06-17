@@ -1,12 +1,13 @@
 function updateDateTime() {
-  let malagaCityTimeZone = moment.tz("Europe/Madrid");
-  //main section date
+  //Main section date
   let mainDateElement = document.querySelector("#main-date");
-  let currentDate = malagaCityTimeZone.format("dddd, MMMM Do YYYY");
+  let currentDate = moment().tz(timeZone).format("dddd, MMMM Do YYYY");
   mainDateElement.innerHTML = currentDate;
   //Main section clock
   let mainClockElement = document.querySelector("#clock");
-  let currentTime = malagaCityTimeZone.format("h:mm:ss [<small>]A[</small>]");
+  let currentTime = moment()
+    .tz(timeZone)
+    .format("h:mm:ss [<small>]A[</small>]");
   mainClockElement.innerHTML = currentTime;
   //New York section
   let newYorkDateElement = document.querySelector("#new-york-date");
@@ -41,7 +42,8 @@ function updateDateTime() {
   tokyoTimeElement.innerHTML = tokyoCityTimeZone.format(
     "h:mm:ss [<small>]A[</small>]",
   );
-  //Hours difference function
+  // Hours difference function
+
   function hoursDiff() {
     let newYorkOffset = moment.tz("America/New_York").utcOffset();
     let parisOffSet = moment.tz("Europe/Paris").utcOffset();
@@ -78,29 +80,31 @@ function updateDateTime() {
   }
   hoursDiff();
 }
-//Select functionality and main location data replacement
+
+// Select functionality and main location data replacement
+
 function updateMainLocation(event) {
-  let cityUpdatedTimeZone = event.target.value;
-  let cityNameUpdated = cityUpdatedTimeZone.split("/")[1];
+  timeZone = event.target.value;
+  let cityNameUpdated = timeZone.replace("_", " ").split("/")[1];
   let cityTimeUpdated = moment
-    .tz(cityUpdatedTimeZone)
+    .tz(timeZone)
     .format("h:mm:ss [<small>]A[</small>]");
-  let cityDateUpdated = moment
-    .tz(cityUpdatedTimeZone)
-    .format("dddd, MMMM Do YYYY");
+  let cityDateUpdated = moment.tz(timeZone).format("dddd, MMMM Do YYYY");
   let updatedLocationElement = document.querySelector("#updated-main-location");
   updatedLocationElement.innerHTML = `
       <h2>${cityNameUpdated}</h2>
       <p>
         <div class="date" id="main-date">${cityDateUpdated}</div>
         <div class="clock" id="clock">${cityTimeUpdated}</div>
-      </p>`;
+      </p>
+    `;
   let citiesHidden = document.querySelector("#cities-block");
   citiesHidden.classList.add("hide");
 }
-
+let timeZone = moment.tz.guess();
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
 let updatedCity = document.querySelector("#city-select");
 updatedCity.addEventListener("change", updateMainLocation);
+// setInterval(updateMainLocation(cityTimeZone), 1000);
