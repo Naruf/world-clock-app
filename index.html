@@ -18,46 +18,48 @@
     </header>
     <main>
       <section>
-        <div class="main-location">
+        <div class="main-location" >
+          <div id="updated-main-location">
         <h2>Malaga</h2>
         <p><div class="date" id="main-date">June 15th 2026</div><div id="clock" class="clock">11:50:23 AM</div>
         </p>
+        </div>
         <form action="">
-          <select name="city" id="city" class="select-element">
-            <option valeu="">Select a city</option>
-            <option valeu="">Madrid</option>
-            <option valeu="">London</option>
-            <option valeu="">Melbourne</option>
-            <option valeu="">Rome</option>
+          <select name="city" id="city-select" class="select-element">
+            <option value="">Select a city</option>
+            <option value="Europe/Madrid">Madrid</option>
+            <option value="Europe/London">London</option>
+            <option value="Australia/Melbourne">Melbourne</option>
+            <option value="Asia/Bangkok">Bangkok</option>
           </select>
         </form>
         </div>
-
-        <div class="city-container">
+        <div id="cities-block">
+        <div class="city-container" >
           <h3>New York<div class="city-date" id="new-york-date">June 15th 2026</div></h3>
           <section class="date-time">
           <div class="city-time" id="new-york-time">11:50:23 AM</div>
           <div class="hours-difference" id="new-york-diff">2 hours ahead</div></section>
         </div>
-        <div class="city-container">
+        <div class="city-container" >
           <h3>Paris<div class="city-date" id="paris-date">June 15th 2026</div></h3>
           <section class="date-time">
           <div class="city-time" id="paris-time">11:50:23 AM</div>
           <div class="hours-difference" id="paris-diff">2 hours ahead</div></section>
         </div>
-        <div class="city-container">
+        <div class="city-container" >
           <h3>Qatar<div class="city-date" id="qatar-date">June 15th 2026</div></h3>
           <section class="date-time">
           <div class="city-time" id="qatar-time">11:50:23 AM</div>
           <div class="hours-difference" id="qatar-diff">2 hours ahead</div></section>
         </div>
-        <div class="city-container">
+        <div class="city-container" >
           <h3>Tokyo<div class="city-date" id="tokyo-date">June 15th 2026</div></h3>
           <section class="date-time">
           <div class="city-time" id="tokyo-time">11:50:23 AM</div>
           <div class="hours-difference" id="tokyo-diff">2 hours ahead</div></section>
         </div>
-
+        </div>
       </section>
     </main>
     <footer>
@@ -86,8 +88,6 @@
       >
     </footer>
   </div>
+  <script src="src/index.js"></script>
     </body>
-
-    <script src="src/index.js"></script>
-  </body>
 </html>

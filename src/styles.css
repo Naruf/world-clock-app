@@ -13,28 +13,14 @@ h1 {
 }
 h2 {
   font-size: 50px;
-  padding: 10px;
   margin: 20px 0 0 0;
+  padding: 10px;
 }
 h3 {
   font-size: 25px;
-  text-align: left;
   margin-top: 2px;
   padding-left: 20px;
-}
-footer {
-  color: rgba(67, 70, 69, 0.5);
-  font-family: "Science Gothic", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-size: 12px;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "wdth" 100,
-    "CTRS" 0;
-  margin-top: 40px;
-  padding: 10px;
+  text-align: left;
 }
 .city-container {
   border: 1px solid transparent;
@@ -42,7 +28,6 @@ footer {
   border-radius: 10px;
   background-color: rgba(84, 144, 136, 0.8);
   display: flex;
-  justify-content: space-between;
   font-family: "Roboto Serif", serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -50,11 +35,12 @@ footer {
   font-variation-settings:
     "wdth" 100,
     "GRAD" 0;
-  padding: 15px 15px 15px 15px;
+  height: 50px;
+  justify-content: space-between;
   margin: auto;
   margin-top: 10px;
+  padding: 15px 15px 15px 15px;
   width: 500px;
-  height: 50px;
 }
 .city-date {
   font-size: 15px;
@@ -89,8 +75,8 @@ footer {
     "ELSH" 0,
     "ELXP" 0;
   margin: 5px;
-  padding: 1px;
   margin-bottom: -20px;
+  padding: 1px;
 }
 .date {
   font-size: 25px;
@@ -102,15 +88,21 @@ footer {
   padding-left: 10px;
   padding-top: 5px;
 }
+.hide {
+  display: none;
+}
 .hours-difference {
   font-size: 15px;
   font-weight: 500;
 }
+.link {
+  color: rgb(232, 133, 12);
+}
 .main-location {
+  background-color: rgba(84, 144, 136, 0.8);
   border: 1px solid transparent;
   box-shadow: 2px 4px 10px grey;
   border-radius: 10px;
-  background-color: rgba(84, 144, 136, 0.8);
   display: block;
   font-family: "Roboto Serif", serif;
   font-optical-sizing: auto;
@@ -120,39 +112,54 @@ footer {
     "wdth" 100,
     "GRAD" 0;
   font-size: 30px;
-  padding: 15px;
   margin: auto;
   margin-top: -20px;
+  padding: 15px;
+  padding-bottom: 30px;
   width: 500px;
-}
-.link {
-  color: rgb(232, 133, 12);
 }
 .page-container {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/180/523/original/wold_map.jpg?1781534463");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  width: 50%;
-  height: 900px;
   border: 1px solid transparent;
   border-radius: 10px;
   display: block;
+  height: 900px;
   margin: 0 auto;
   margin-top: 10px;
   padding: 30px;
+  position: relative;
   text-align: center;
-  width: 700px;
-  height: 850px;
+  width: 800px;
+}
+.page-container footer {
+  color: rgba(67, 70, 69, 0.5);
+  font-family: "Science Gothic", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-size: 12px;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "wdth" 100,
+    "CTRS" 0;
+  left: 0;
+  padding: 30px 10px 30px 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 .select-element {
   border-radius: 8px;
   font-size: 20px;
-  padding: 5px 15px;
+  padding: 8px 15px;
   margin: 0 auto;
   width: 500px;
 }
 
+/* Fonts CSS */
 /* .roboto-serif-font {
   font-family: "Roboto Serif", serif;
   font-optical-sizing: auto;
