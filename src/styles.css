@@ -75,7 +75,7 @@ h3 {
     "ELSH" 0,
     "ELXP" 0;
   margin: 5px;
-  margin-bottom: -20px;
+  margin-bottom: -40px;
   padding: 1px;
 }
 .date {
@@ -90,6 +90,11 @@ h3 {
 }
 .hide {
   display: none;
+}
+.hours {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 .hours-difference {
   font-size: 15px;
@@ -156,7 +161,7 @@ h3 {
   font-size: 20px;
   padding: 8px 15px;
   margin: 0 auto;
-  width: 500px;
+  width: 450px;
 }
 
 /* Fonts CSS */

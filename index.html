@@ -20,13 +20,14 @@
       <section>
         <div class="main-location" >
           <div id="updated-main-location">
-        <h2>Malaga</h2>
+        <h2 id="city-name">Malaga</h2>
         <p><div class="date" id="main-date">June 15th 2026</div><div id="clock" class="clock">11:50:23 AM</div>
+          <div class="hours" id="main-hours-diff"></div> 
         </p>
         </div>
         <form action="/select">
           <select name="city" id="city-select" class="select-element">
-            <option value="">Select a city...</option>
+            <option value="" id="">Select a city...</option>
             <option value="America/Los_Angeles">Los Angeles</option>
             <option value="Europe/London">London</option>
             <option value="Asia/Bangkok">Bangkok</option>

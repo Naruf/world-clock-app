@@ -1,4 +1,8 @@
 function updateDateTime() {
+  //main city name
+  let mainTimeZoneElement = document.querySelector("#city-name");
+  let mainTimeZoneName = timeZone.replace("_", " ").split("/")[1];
+  mainTimeZoneElement.innerHTML = mainTimeZoneName;
   //Main section date
   let mainDateElement = document.querySelector("#main-date");
   let currentDate = moment().tz(timeZone).format("dddd, MMMM Do YYYY");
@@ -9,6 +13,7 @@ function updateDateTime() {
     .tz(timeZone)
     .format("h:mm:ss [<small>]A[</small>]");
   mainClockElement.innerHTML = currentTime;
+
   //New York section
   let newYorkDateElement = document.querySelector("#new-york-date");
   let newYorkTimeElement = document.querySelector("#new-york-time");
@@ -49,30 +54,30 @@ function updateDateTime() {
     let parisOffSet = moment.tz("Europe/Paris").utcOffset();
     let qatarOffSet = moment.tz("Asia/Qatar").utcOffset();
     let tokyoOffSet = moment.tz("Asia/Tokyo").utcOffset();
-    let malagaOffset = moment.tz("Europe/Madrid").utcOffset();
-    //NY hours diff
-    let newYorkDiffMinutes = newYorkOffset - malagaOffset;
+
+    //New York hours diff
+    let newYorkDiffMinutes = newYorkOffset - currentOffSet;
     let newYorkDiffHours = Math.floor(Math.abs(newYorkDiffMinutes) / 60);
     let sign = newYorkDiffMinutes >= 0 ? "+" : "-";
     let newYorkHoursDiffElement = document.querySelector("#new-york-diff");
     newYorkHoursDiffElement.innerHTML = `(${sign}${newYorkDiffHours} hours)`;
 
     //Paris hours diff
-    let parisDiffMinutes = parisOffSet - malagaOffset;
+    let parisDiffMinutes = parisOffSet - currentOffSet;
     let parisDiffHours = Math.floor(Math.abs(parisDiffMinutes) / 60);
     let parissign = parisDiffMinutes >= 0 ? "+" : "-";
     let parisHoursDiffElement = document.querySelector("#paris-diff");
     parisHoursDiffElement.innerHTML = `(${parissign}${parisDiffHours} hours)`;
 
     //Qatar hours diff
-    let qatarDiffMinutes = qatarOffSet - malagaOffset;
+    let qatarDiffMinutes = qatarOffSet - currentOffSet;
     let qatarDiffHours = Math.floor(Math.abs(qatarDiffMinutes) / 60);
     let qatarsign = qatarDiffMinutes >= 0 ? "+" : "-";
     let qatarHoursDiffElement = document.querySelector("#qatar-diff");
     qatarHoursDiffElement.innerHTML = `(${qatarsign}${qatarDiffHours} hours)`;
 
     //Tokyo hours diff
-    let tokyoDiffMinutes = tokyoOffSet - malagaOffset;
+    let tokyoDiffMinutes = tokyoOffSet - currentOffSet;
     let tokyoDiffHours = Math.floor(Math.abs(tokyoDiffMinutes) / 60);
     let tokyosign = tokyoDiffMinutes >= 0 ? "+" : "-";
     let tokyoHoursDiffElement = document.querySelector("#tokyo-diff");
@@ -82,29 +87,95 @@ function updateDateTime() {
 }
 
 // Select functionality and main location data replacement
-
 function updateMainLocation(event) {
-  timeZone = event.target.value;
+  let selectedValue = event.target.value;
+  timeZone = selectedValue;
+
+  if (!selectedValue) {
+    timeZone = moment.tz.guess();
+    let citiesHidden = document.querySelector("#cities-block");
+    citiesHidden.classList.remove("hide");
+    let cityUpdatedHoursDiffElement =
+      document.querySelector("#main-hours-diff");
+    cityUpdatedHoursDiffElement.innerHTML = "";
+    return;
+  }
+
   let cityNameUpdated = timeZone.replace("_", " ").split("/")[1];
-  let cityTimeUpdated = moment
-    .tz(timeZone)
-    .format("h:mm:ss [<small>]A[</small>]");
-  let cityDateUpdated = moment.tz(timeZone).format("dddd, MMMM Do YYYY");
-  let updatedLocationElement = document.querySelector("#updated-main-location");
-  updatedLocationElement.innerHTML = `
-      <h2>${cityNameUpdated}</h2>
-      <p>
-        <div class="date" id="main-date">${cityDateUpdated}</div>
-        <div class="clock" id="clock">${cityTimeUpdated}</div>
-      </p>
-    `;
-  let citiesHidden = document.querySelector("#cities-block");
-  citiesHidden.classList.add("hide");
+  if (cityNameUpdated.length > 1) {
+    let cityTimeUpdated = moment()
+      .tz(timeZone)
+      .format("h:mm:ss [<small>]A[</small>]");
+    let cityDateUpdated = moment().tz(timeZone).format("dddd, MMMM Do YYYY");
+    let updatedLocationElement = document.querySelector(
+      "#updated-main-location",
+    );
+    updatedLocationElement.innerHTML = `
+        <h2 id="city-name">${cityNameUpdated}</h2>
+        <p>
+          <div class="date" id="main-date">${cityDateUpdated}</div>
+          <div class="clock" id="clock">${cityTimeUpdated}</div>
+        </p>
+        <div class="hours" id="main-hours-diff">hours</div>
+      `;
+    let citiesHidden = document.querySelector("#cities-block");
+    citiesHidden.classList.add("hide");
+
+    //hours differencea for city updated
+    let cityOffSet = moment.tz(timeZone).utcOffset();
+    let cityUpdatedDiffMinutes = cityOffSet - currentOffSet;
+    let cityUpdatedDiffHours = Math.floor(
+      Math.abs(cityUpdatedDiffMinutes) / 60,
+    );
+    let sign = cityUpdatedDiffMinutes >= 0 ? "+" : "-";
+    let cityUpdatedHoursDiffElement =
+      document.querySelector("#main-hours-diff");
+    cityUpdatedHoursDiffElement.innerHTML = `(${sign}${cityUpdatedDiffHours} hours)`;
+  }
 }
+//   timeZone = event.target.value;
+//   console.log("value:", timeZone);
+//   console.log("type:", typeof timeZone);
+//   let cityNameUpdated = timeZone.replace("_", " ").split("/")[1];
+//   if (cityNameUpdated.length > 1) {
+//     let cityTimeUpdated = moment()
+//       .tz(timeZone)
+//       .format("h:mm:ss [<small>]A[</small>]");
+//     let cityDateUpdated = moment().tz(timeZone).format("dddd, MMMM Do YYYY");
+//     let updatedLocationElement = document.querySelector(
+//       "#updated-main-location",
+//     );
+//     updatedLocationElement.innerHTML = `
+//       <h2 id="city-name">${cityNameUpdated}</h2>
+//       <p>
+//         <div class="date" id="main-date">${cityDateUpdated}</div>
+//         <div class="clock" id="clock">${cityTimeUpdated}</div>
+//       </p>
+//       <div class="hours" id="main-hours-diff">hours</div>
+//     `;
+//     let citiesHidden = document.querySelector("#cities-block");
+//     citiesHidden.classList.add("hide");
+
+//     //hours differencea for city updated
+//     let cityOffSet = moment.tz(timeZone).utcOffset();
+//     let cityUpdatedDiffMinutes = cityOffSet - currentOffSet;
+//     let cityUpdatedDiffHours = Math.floor(
+//       Math.abs(cityUpdatedDiffMinutes) / 60,
+//     );
+//     let sign = cityUpdatedDiffMinutes >= 0 ? "+" : "-";
+//     let cityUpdatedHoursDiffElement =
+//       document.querySelector("#main-hours-diff");
+//     cityUpdatedHoursDiffElement.innerHTML = `(${sign}${cityUpdatedDiffHours} hours)`;
+//   } else if (cityNameUpdated.length < 0) {
+//     return;
+//   }
+// }
+
 let timeZone = moment.tz.guess();
+let currentOffSet = moment.tz("Europe/Madrid").utcOffset();
+
 updateDateTime();
 setInterval(updateDateTime, 1000);
 
 let updatedCity = document.querySelector("#city-select");
 updatedCity.addEventListener("change", updateMainLocation);
-// setInterval(updateMainLocation(cityTimeZone), 1000);
