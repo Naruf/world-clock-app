@@ -173,34 +173,21 @@ h3 {
   width: 560px;
 }
 
-/* Fonts CSS */
-/* .roboto-serif-font {
-  font-family: "Roboto Serif", serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings:
-  "wdth" 100,
-  "GRAD" 0;
+@media (max-width: 600px) {
+  .page-container {
+    max-height: 900px;
+    max-width: 580px;
+  }
+  .city-container {
+    width: 500px;
+  }
+  .main-location {
+    width: 500px;
+  }
+  .select-element {
+    width: 460px;
+  }
+  /* body {
+    background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
   } */
-/* .bitcount-single-font {
-    font-family: "Bitcount Single", system-ui;
-    font-optical-sizing: auto;
-    font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "CRSV" 0.5,
-    "ELSH" 0,
-    "ELXP" 0;
-} */
-/* .science-gothic-font {
-  font-family: "Science Gothic", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 500;
-  font-style: normal;
-  font-variation-settings:
-    "slnt" 0,
-    "wdth" 100,
-    "CTRS" 0;
-} */
+}
