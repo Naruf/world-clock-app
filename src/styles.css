@@ -203,7 +203,7 @@ h3 {
   }
   .main-location {
     width: 280px;
-    padding-right: 8px;
+    padding: 10px 10px 30px 10px;
   }
   .select-element {
     width: 250px;
@@ -212,7 +212,7 @@ h3 {
     font-size: 60px;
   }
   h2 {
-    font-size: 50px;
+    font-size: 45px;
   }
   h3 {
     font-size: 20px;
