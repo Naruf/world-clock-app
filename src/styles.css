@@ -1,3 +1,8 @@
+body {
+  background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+  background-repeat: none;
+  height: 100vh;
+}
 h1 {
   color: rgb(61, 128, 121);
   font-family: "Science Gothic", sans-serif;
@@ -36,7 +41,8 @@ h3 {
     "wdth" 100,
     "GRAD" 0;
   height: 50px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  gap: 5px;
   margin: auto;
   margin-top: 10px;
   padding: 15px 15px 15px 15px;
@@ -66,7 +72,6 @@ h3 {
     "ELXP" 0;
   margin-top: -6px;
 }
-
 .clock {
   color: black;
   font-family: "Bitcount Single", system-ui;
@@ -108,6 +113,14 @@ h3 {
 .link {
   color: rgb(232, 133, 12);
 }
+.logo {
+  display: block;
+  margin: 20px 20px 30px 80px;
+  width: 120px;
+  background-color: rgb(240, 240, 238);
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
 .main-location {
   background-color: rgba(84, 144, 136, 0.8);
   border: 4px solid transparent;
@@ -136,10 +149,10 @@ h3 {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 1px solid transparent;
+  border: 1px solid rgb(167, 165, 165);
   border-radius: 13px;
   display: block;
-  height: 900px;
+  height: 1000px;
   margin: 0 auto;
   margin-top: 5px;
   padding: 30px;
@@ -174,20 +187,59 @@ h3 {
 }
 
 @media (max-width: 600px) {
+  body {
+    height: auto;
+  }
   .page-container {
-    max-height: 900px;
-    max-width: 580px;
+    height: 1200px;
+    width: 310px;
   }
   .city-container {
-    width: 500px;
+    width: 280px;
+    height: auto;
+    padding-bottom: 5px;
+    padding-right: 8px;
   }
   .main-location {
-    width: 500px;
+    width: 280px;
+    padding-right: 8px;
   }
   .select-element {
-    width: 460px;
+    width: 250px;
   }
-  /* body {
-    background: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
-  } */
+  h1 {
+    font-size: 60px;
+  }
+  h2 {
+    font-size: 50px;
+  }
+  h3 {
+    font-size: 20px;
+    margin-top: 2px;
+    padding-left: 15px;
+    margin-bottom: 0px;
+  }
+  .date {
+    font-size: 20px;
+  }
+  .city-date {
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 13px;
+    padding: 5px 8px 8px 0;
+  }
+  .city-time {
+    font-size: 23px;
+  }
+  .date-time {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+  .logo {
+    width: 100px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
 }
