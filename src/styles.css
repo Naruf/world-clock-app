@@ -146,8 +146,8 @@ h3 {
   border: 4px solid rgb(6, 82, 63);
 }
 .page-container {
-  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/478/original/map2-transparency.png?1789138843");
-  /* background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/180/523/original/wold_map.jpg?1781534463"); */
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/181/480/original/largeMapTransparent30.png?1789142902");
+
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -245,10 +245,12 @@ h3 {
     width: 120px;
     margin: auto;
     margin-bottom: 10px;
+    margin-top: 8px;
     /* margin-top: 10px; */
   }
   .page-container footer {
-    padding-bottom: 10px;
+    font-size: 10px;
+    padding-bottom: 25px;
     padding-left: 15px;
     width: 90%;
   }
